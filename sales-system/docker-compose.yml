@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  sql-server-db:
+    volumes:
+      - ./database:/var/opt/mssql/backup
+    container_name: sales-system-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports: 
+      - "1433:1433"
+    environment: 
+      SA_PASSWORD: "UnChanchit0"
+      ACCEPT_EULA: "Y"
+    # command: bash -c "/opt/mssql-tools/bin/sqlcmd -S 0.0.0.0,1433 -U sa -P UnChanchit0 -Q 'RESTORE FILELISTONLY FROM DISK = "/var/opt/mssql/backup/wwi.bak"'"
+    command: sh -c "/opt/mssql-tools/bin/sqlcmd -S 0.0.0.0,1433 -U sa -P UnChanchit0 -Q \"RESTORE DATABASE [VentaReal] FROM DISK = N'/var/opt/mssql/backup/venta-real.bak' WITH FILE = 1, NOUNLOAD, REPLACE, NORECOVERY, STATS = 5\""
