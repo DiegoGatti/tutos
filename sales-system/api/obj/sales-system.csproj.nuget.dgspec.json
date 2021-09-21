@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/diego/repositories/tutos/sales-system/sales-system.csproj": {}
+    "/home/diego/repositories/tutos/sales-system/api/sales-system.csproj": {}
   },
   "projects": {
-    "/home/diego/repositories/tutos/sales-system/sales-system.csproj": {
+    "/home/diego/repositories/tutos/sales-system/api/sales-system.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/diego/repositories/tutos/sales-system/sales-system.csproj",
+        "projectUniqueName": "/home/diego/repositories/tutos/sales-system/api/sales-system.csproj",
         "projectName": "sales-system",
-        "projectPath": "/home/diego/repositories/tutos/sales-system/sales-system.csproj",
+        "projectPath": "/home/diego/repositories/tutos/sales-system/api/sales-system.csproj",
         "packagesPath": "/home/diego/.nuget/packages/",
-        "outputPath": "/home/diego/repositories/tutos/sales-system/obj/",
+        "outputPath": "/home/diego/repositories/tutos/sales-system/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/diego/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -61,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }
