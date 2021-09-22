@@ -62,5 +62,58 @@ namespace sales_system.Controllers
 
             return Ok(response);
         }
+
+        [HttpPut]
+        public IActionResult Edit(ClienteRequest clienteRequest) 
+        {
+            Response response = new Response();
+
+            try
+            {
+                using(VentaRealContext db = new VentaRealContext())
+                {
+                    Cliente cliente = db.Clientes.Find(clienteRequest.Id);
+                    cliente.Nombre = clienteRequest.Nombre;
+
+                    db.Entry(cliente).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+                    
+                    response.status = 1;
+                }
+            }
+            catch(Exception ex)
+            {
+                response.status = 0;
+                response.message = ex.Message;
+            }
+
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(long id) 
+        {
+            Response response = new Response();
+
+            try
+            {
+                using(VentaRealContext db = new VentaRealContext())
+                {
+                    Cliente cliente = db.Clientes.Find(id);
+
+                    db.Remove(cliente);
+                    db.SaveChanges();
+                    
+                    response.status = 1;
+                }
+            }
+            catch(Exception ex)
+            {
+                response.status = 0;
+                response.message = ex.Message;
+            }
+
+            return Ok(response);
+        }
     }
 }
