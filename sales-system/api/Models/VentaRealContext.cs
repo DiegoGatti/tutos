@@ -37,7 +37,7 @@ namespace sales_system.Models
 
             modelBuilder.Entity<Cliente>(entity =>
             {
-                entity.HasNoKey();
+                // entity.HasNoKey();
 
                 entity.ToTable("cliente");
 
