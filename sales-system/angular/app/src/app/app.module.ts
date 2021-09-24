@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule} from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ClienteComponent } from './cliente/cliente.component';
 
@@ -18,7 +19,8 @@ import { ClienteComponent } from './cliente/cliente.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
