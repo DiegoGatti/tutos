@@ -16,6 +16,7 @@ namespace sales_system
 {
     public class Startup
     {
+        readonly string miCors = "miCors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,7 +27,16 @@ namespace sales_system
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    name: miCors,
+                    builder =>
+                    {
+                        builder.WithOrigins("*");
+                    }
+                );
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -47,6 +57,8 @@ namespace sales_system
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(miCors);
 
             app.UseAuthorization();
 
